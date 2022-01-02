@@ -1,0 +1,175 @@
+
+
+.main {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .display-none{
+    display: none;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /*                             before theme switch                            */
+  /* -------------------------------------------------------------------------- */
+  
+  .main .white {
+    position: absolute;
+    height: 100vh;
+    width: 50vw;
+    background-color: #e8e8e8;
+    top: 0;
+    left: 0;
+    mix-blend-mode: difference;
+  }
+  
+  .main .dark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 50vw;
+    background-color: #171717;
+    mix-blend-mode: difference;
+  }
+  
+  .main .text-area h1 {
+    color: #e8e8e8;
+    height: 42px;
+    width: auto;
+    text-align: center;
+    overflow: hidden;
+    animation: 2s ease-in roll;
+    white-space: nowrap;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /*                                 white theme                                */
+  /* -------------------------------------------------------------------------- */
+  
+  .white-theme {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #e8e8e8;
+  }
+  
+  .white-theme .white {
+    display: none;
+  }
+  
+  .white-theme .dark {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    animation: 1.5s linear hide;
+    background-color: #171717;
+  }
+  
+  .white-theme .text-area {
+    mix-blend-mode: difference;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+  }
+  
+  .white-theme .text-area h1 {
+    z-index: 100;
+    mix-blend-mode: difference;
+    color: #e8e8e8;
+    height: 42px;
+    width: 0;
+    text-align: center;
+    overflow: hidden;
+    animation: 1s ease-in hide-text;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  /* -------------------------------------------------------------------------- */
+  /*                                 dark theme                                 */
+  /* -------------------------------------------------------------------------- */
+  
+  .dark-theme {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #171717;
+  }
+  
+  .dark-theme .dark {
+    display: none;
+  }
+  
+  .dark-theme .white {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    animation: 1.5s linear hide;
+    background-color: #e8e8e8;
+  }
+  
+  .dark-theme .text-area {
+    mix-blend-mode: difference;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    animation: 0.5s ease-in display-none;
+  }
+  
+  .dark-theme .text-area h1 {
+    z-index: 100;
+    mix-blend-mode: difference;
+    color: #e8e8e8;
+    height: 42px;
+    width: 0;
+    text-align: center;
+    overflow: hidden;
+    animation: 1s ease-in hide-text;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  
+  /* -------------------------------------------------------------------------- */
+  /*                                 animations                                 */
+  /* -------------------------------------------------------------------------- */
+  
+  @keyframes roll {
+    from {
+      width: 0;
+      display: block;
+    }
+    to {
+      width: 300px;
+      display: none;
+    }
+  }
+  
+  @keyframes hide {
+    from {
+      width: 50vw;
+    }
+    to {
+      width: 0;
+    }
+  }
+  
+  @keyframes hide-text {
+    from {
+      width: 300px;
+    }
+    to {
+      width: 0;
+    }
+  }
